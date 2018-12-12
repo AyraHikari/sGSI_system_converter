@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo apt install android-tools-fsutils brotli
+sudo apt install android-tools-fsutils brotli abootimg

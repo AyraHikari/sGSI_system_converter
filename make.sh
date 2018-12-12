@@ -11,9 +11,9 @@ abootimg -x boot.img
 abootimg-unpack-initrd
 sudo dd if=mapping/26.0.cil of=./mnt_system/etc/selinux/mapping/26.0.cil
 sudo dd if=mapping/27.0.cil of=./mnt_system/etc/selinux/mapping/27.0.cil
-read -p "如有需要请到mnt_system下修改system，按enter继续打包"
+read -p "Jika perlu, silakan ubah sistem di mnt_system, tekan enter untuk melanjutkan pengemasan"
 sudo umount ./mnt_system
 e2fsck -f system.raw.img
 resize2fs -M -p system.raw.img
 img2simg system.raw.img sGSI_System.img
-echo 完成，输出文件sGSI_System.img
+echo Selesai, file keluaran sGSI_System.img
