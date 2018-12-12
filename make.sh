@@ -1,5 +1,17 @@
 #!/bin/bash
-mkdir tmp
+if [ -d tmp ]; then
+	echo -n "Folder tmp sudah ada, hapus folder? (y/n) "
+	read answer
+	if [ "$answer" != "${answer#[Yy]}" ] ;then
+	    rm -rfd tmp
+	    mkdir tmp
+	else
+		echo Ok, jalankan command lagi jika sudah
+	    exit 0
+	fi
+else
+	mkdir tmp
+fi
 cd tmp
 mkdir mnt_system mnt_vendor
 unzip ../update.zip
@@ -19,4 +31,3 @@ e2fsck -f system.raw.img
 resize2fs -M -p system.raw.img
 img2simg system.raw.img sGSI_System.img
 echo Selesai, file keluaran sGSI_System.img
-rm -rf tmp
